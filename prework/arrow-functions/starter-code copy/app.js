@@ -186,24 +186,35 @@ console.log(student.courseName());
 
 // STEP 11
 // How do arrow functions affect constructor functions?
-student.prototype.scope = function() {
-  console.log(this);
-};
+
+// let student = (name, age, hometown)=> ({
+//   name: name,
+//   age: age,
+//   hometown: hometown,
+//   greeting: () => `Hi, my name is ${name}`,
+
+// });
+
+joe.scope = () =>`${this}`;
+
+// student.prototype.scope = function() {
+//   console.log(this);
+// };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(joe.scope());
 
-student.prototype.scopeArrow = () => console.log(this);
+joe.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//it invokes the properties associated with the constructor
-//
+//object window
+
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//it's invoking the DOM document
+//Window {window: Window, self: Window, document: document, name: "", location: Location, …}
 //
 // 3. Explain why "this" is different when an arrow function is used.
 //arrow functions follow normal rules for looking at variables
